@@ -199,7 +199,7 @@ void SensorTimer::processLidars() {
       data_std[j + 2] *= -1.0;
     }
     auto bytes = reinterpret_cast<const unsigned char*>(&data_std[0]);
-    vector<unsigned char> lidar_msg_data(
+    std::vector<unsigned char> lidar_msg_data(
         bytes, bytes + sizeof(float) * data_std.size());
     msg->data = std::move(lidar_msg_data);
 

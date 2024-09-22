@@ -216,7 +216,7 @@ bool AirsimSimulator::setupAirsim() {
   // for us what is going wrong
   int timeout = 0;
   while (airsim_state_client_.getConnectionState() !=
-             RpcLibClientBase::ConnectionState::Connected &&
+             msr::airlib::RpcLibClientBase::ConnectionState::Connected &&
          ros::ok()) {
     std::this_thread::sleep_for(std::chrono::milliseconds(300));
     timeout++;
@@ -518,7 +518,7 @@ void AirsimSimulator::simStateCallback(const ros::TimerEvent&) {
     return;
   }
   if (airsim_state_client_.getConnectionState() !=
-      RpcLibClientBase::ConnectionState::Connected) {
+      msr::airlib::RpcLibClientBase::ConnectionState::Connected) {
     LOG(FATAL) << "Airsim client was disconnected!";
     is_connected_ = false;
     is_running_ = false;

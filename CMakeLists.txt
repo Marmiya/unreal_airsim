@@ -55,4 +55,5 @@ cs_add_executable(airsim_simulator_node
         )
 target_link_libraries(airsim_simulator_node ${PROJECT_NAME} ${catkin_LIBRARIES} AirLib ${RPC_LIB})
 
-
+cs_install()
+cs_export()
